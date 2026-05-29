@@ -1,0 +1,49 @@
+{% load static %}
+
+<div class="login-page">
+
+    <div class="login-card">
+
+        <!-- LOGO / HEADER -->
+        <div class="login-header">
+
+            <div class="login-logo">
+                <img src="{% static 'members/imgs/church-logo.jpg' %}" alt="Logo">
+            </div>
+
+            <h1>COP-AYD</h1>
+
+            <p>
+                Church Shepherd Portal
+            </p>
+
+        </div>
+
+        <!-- FORM -->
+        <form method="POST"
+              class="login-form">
+
+            {% csrf_token %}
+
+            <div class="login-field">
+                <label>Username</label>
+                {{ form.username }}
+            </div>
+
+            <div class="login-field">
+                <label>Password</label>
+                {{ form.password }}
+            </div>
+
+            <button type="submit"
+                    class="login-btn">
+
+                Login
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>

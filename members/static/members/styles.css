@@ -1,0 +1,1647 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+
+body {
+    font-family: Inter, Arial, sans-serif;
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+    min-height: 100vh;
+}
+
+/* =========================
+   APP HEADER
+========================= */
+
+.app-header {
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+    top: 0;
+
+    z-index: 100;
+}
+
+.app-header-inner {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 14px 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+}
+
+/* =========================
+   BRAND
+========================= */
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.app-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.app-brand-text {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.app-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    flex: 1;
+}
+
+.app-nav-link {
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: #4b5563;
+
+    font-weight: 500;
+
+    transition: 0.2s ease;
+}
+
+.app-nav-link:hover {
+    background: #f3f4f6;
+
+    color: #111827;
+}
+
+/* =========================
+   USER AREA
+========================= */
+
+.app-user {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    flex-shrink: 0;
+}
+
+.app-user-avatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50%;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+}
+
+.app-user-name {
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #111827;
+}
+
+/* =========================
+   LOGOUT BUTTON
+========================= */
+
+.logout-btn {
+    border: none;
+
+    background: #fee2e2;
+
+    color: #dc2626;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+}
+
+.logout-btn:hover {
+    background: #fecaca;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.app-main {
+    padding: 28px 20px;
+}
+
+.app-container {
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+/* =========================
+   GLOBAL CARD
+========================= */
+
+.card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    border: 1px solid #e5e7eb;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+
+    .app-header-inner {
+        flex-wrap: wrap;
+    }
+
+    .app-nav {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-title {
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+
+    margin-bottom: 6px;
+}
+
+.page-subtitle {
+    color: #6b7280;
+
+    font-size: 15px;
+}
+
+/* =========================
+   SECTION
+========================= */
+
+.dashboard-section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.section-title {
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 20px;
+}
+
+.stats-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    transition: all 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.stats-card-icon {
+    width: 60px;
+    height: 60px;
+
+    border-radius: 18px;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+
+    flex-shrink: 0;
+}
+
+.stats-card-number {
+    font-size: 30px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.stats-card-label {
+    margin-top: 4px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* =========================
+   ACTIONS
+========================= */
+
+.actions-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 20px;
+}
+
+.action-card {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 22px;
+
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    text-decoration: none;
+
+    transition: all 0.2s ease;
+
+    color: inherit;
+}
+
+.action-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+
+    border-color: #dbeafe;
+}
+
+.action-card-icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 16px;
+
+    background: #eff6ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 26px;
+
+    flex-shrink: 0;
+}
+
+.action-card-title {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.action-card-description {
+    margin-top: 4px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+
+/* =========================
+   ATTENDANCE PAGE
+========================= */
+
+.attendance-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.attendance-summary {
+    display: flex;
+    gap: 12px;
+}
+
+.attendance-summary-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    padding: 16px 20px;
+
+    text-align: center;
+
+    min-width: 90px;
+}
+
+.attendance-summary-card span {
+    display: block;
+
+    font-size: 24px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.attendance-summary-card small {
+    color: #6b7280;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.attendance-search-wrapper {
+    position: sticky;
+
+    top: 78px;
+
+    z-index: 20;
+}
+
+.attendance-search-input {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.attendance-search-input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+/* =========================
+   TOGGLE
+========================= */
+
+.attendance-toggle {
+    display: flex;
+
+    gap: 10px;
+}
+
+.attendance-toggle-btn {
+    flex: 1;
+
+    border: none;
+
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 14px 18px;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    border: 1px solid #e5e7eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    transition: 0.2s ease;
+}
+
+.attendance-toggle-btn.active {
+    background: #2563eb;
+
+    color: white;
+
+    border-color: #2563eb;
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.attendance-badge {
+    background: #f3f4f6;
+
+    padding: 4px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.attendance-badge.success {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.attendance-toggle-btn.active .attendance-badge {
+    background: rgba(255,255,255,0.2);
+
+    color: white;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.attendance-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.attendance-section-title {
+    font-size: 20px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+/* =========================
+   MEMBERS LIST
+========================= */
+
+.attendance-members-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* =========================
+   MEMBER CARD
+========================= */
+
+.member-card {
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #e5e7eb;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-1px);
+
+    box-shadow: 0 10px 24px rgba(0,0,0,0.05);
+}
+
+.member-card.active {
+    border-color: #22c55e;
+
+    background: #f0fdf4;
+}
+
+/* =========================
+   FLOATING SAVE BUTTON
+========================= */
+
+.floating-save-btn {
+    position: fixed;
+
+    bottom: 24px;
+    right: 24px;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 16px 24px;
+
+    border-radius: 999px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow: 0 10px 30px rgba(37,99,235,0.3);
+
+    transition: 0.2s ease;
+
+    z-index: 100;
+}
+
+.floating-save-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.attendance-status {
+    text-align: center;
+
+    color: #16a34a;
+
+    font-weight: 600;
+}
+
+/* =========================
+   MEMBER CARD INNER
+========================= */
+
+.member-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.member-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.member-avatar {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 16px;
+
+    object-fit: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.member-avatar-placeholder {
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.member-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.member-info-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.member-name {
+    font-size: 17px;
+    font-weight: 700;
+
+    color: #111827;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* =========================
+   META
+========================= */
+
+.member-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 6px;
+}
+
+.member-meta-item {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* =========================
+   STATUS BADGE
+========================= */
+
+.member-status-badge {
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    flex-shrink: 0;
+}
+
+.member-status-badge.success {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+/* =========================
+   ACTION INDICATOR
+========================= */
+
+.member-action-indicator {
+    flex-shrink: 0;
+}
+
+.member-check-circle {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 50%;
+
+    border: 2px solid #d1d5db;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: transparent;
+
+    transition: 0.2s ease;
+}
+
+/* ACTIVE STATE */
+
+.member-card.active .member-check-circle {
+    background: #22c55e;
+
+    border-color: #22c55e;
+
+    color: white;
+}
+
+
+
+/* =========================
+   MEMBERS PAGE
+========================= */
+
+.members-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* =========================
+   MEMBERS COUNT
+========================= */
+
+.members-count {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 10px 16px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    color: #374151;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.members-search-wrapper {
+    position: sticky;
+
+    top: 78px;
+
+    z-index: 20;
+}
+
+.members-search-input {
+    width: 100%;
+
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.members-search-input:focus {
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 4px rgba(37,99,235,0.1);
+}
+
+/* =========================
+   MEMBERS LIST
+========================= */
+
+.members-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+/* =========================
+   MEMBER DIRECTORY CARD
+========================= */
+
+.member-directory-card {
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    padding: 18px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    transition: 0.2s ease;
+}
+
+.member-directory-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+
+    border-color: #dbeafe;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.member-directory-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.member-directory-avatar {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+}
+
+.member-directory-avatar-placeholder {
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+    font-size: 18px;
+}
+
+/* =========================
+   INFO
+========================= */
+
+.member-directory-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.member-directory-name {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.member-directory-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 6px;
+}
+
+.member-directory-meta-item {
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+.member-last-seen {
+    color: #16a34a;
+}
+
+/* =========================
+   ARROW
+========================= */
+
+.member-directory-arrow {
+    color: #9ca3af;
+
+    font-size: 22px;
+
+    flex-shrink: 0;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state {
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+}
+
+.empty-state-icon {
+    font-size: 42px;
+
+    margin-bottom: 14px;
+}
+
+.empty-state-title {
+    font-size: 22px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.empty-state-text {
+    margin-top: 8px;
+
+    color: #6b7280;
+}
+
+
+
+
+/* =========================
+   MEMBER DETAIL PAGE
+========================= */
+
+.member-detail-page {
+    display: flex;
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.member-profile-card {
+    background: white;
+
+    border-radius: 24px;
+
+    border: 1px solid #e5e7eb;
+
+    padding: 28px;
+}
+
+.member-profile-left {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+/* =========================
+   AVATAR
+========================= */
+
+.member-profile-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.member-profile-avatar {
+    width: 120px;
+    height: 120px;
+
+    border-radius: 28px;
+
+    object-fit: cover;
+}
+
+.member-profile-placeholder {
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* =========================
+   PROFILE INFO
+========================= */
+
+.member-profile-info {
+    min-width: 0;
+}
+
+.member-profile-name {
+    font-size: 34px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.member-profile-meta {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 14px;
+}
+
+.member-profile-meta-item {
+    background: #f3f4f6;
+
+    border-radius: 999px;
+
+    padding: 10px 14px;
+
+    font-size: 14px;
+
+    color: #374151;
+}
+
+/* =========================
+   STATS
+========================= */
+
+.member-stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 18px;
+}
+
+.member-stat-card {
+    background: white;
+
+    border-radius: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    padding: 24px;
+
+    transition: 0.2s ease;
+}
+
+.member-stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 10px 28px rgba(0,0,0,0.05);
+}
+
+.member-stat-number {
+    font-size: 32px;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.member-stat-label {
+    margin-top: 8px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* =========================
+   HISTORY SECTION
+========================= */
+
+.member-history-section {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+/* =========================
+   HISTORY LIST
+========================= */
+
+.attendance-history-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.attendance-history-card {
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e7eb;
+
+    padding: 18px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: 0.2s ease;
+}
+
+.attendance-history-card:hover {
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+}
+
+.attendance-history-date {
+    font-weight: 600;
+
+    color: #111827;
+}
+
+/* =========================
+   STATUS
+========================= */
+
+.attendance-status {
+    padding: 8px 14px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.attendance-status.success {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.attendance-status.danger {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+.attendance-status.hidden {
+    display: none;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .member-profile-left {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .member-profile-avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .member-profile-name {
+        font-size: 28px;
+    }
+
+}
+
+
+
+
+/* =========================
+   REGISTER PAGE
+========================= */
+
+.register-page {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.register-header {
+    margin-bottom: 30px;
+}
+
+.register-title {
+    font-size: 40px;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.register-subtitle {
+    color: #6b7280;
+    font-size: 16px;
+}
+
+.register-grid {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+.register-photo-panel,
+.register-form-panel {
+    background: white;
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow:
+        0 4px 18px rgba(0,0,0,0.04);
+}
+
+.panel-header {
+    margin-bottom: 20px;
+}
+
+.panel-header h3 {
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.panel-header p {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+/* CAMERA */
+
+.camera-box {
+    width: 100%;
+    height: 340px;
+    position: relative;
+    border-radius: 18px;
+    border: 2px dashed #d1d5db;
+    overflow: hidden;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* VIDEO + IMAGE MUST FULLY COVER */
+.camera-video,
+.camera-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+/* PLACEHOLDER */
+.camera-placeholder {
+    text-align: center;
+    color: #9ca3af;
+}
+
+.camera-placeholder-icon {
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.camera-controls {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* FORM */
+
+.register-fields p {
+    margin-bottom: 18px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.register-fields label {
+    margin-bottom: 7px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.register-fields input,
+.register-fields textarea,
+.register-fields select {
+    width: 100%;
+    padding: 13px 14px;
+
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.register-fields input:focus,
+.register-fields textarea:focus,
+.register-fields select:focus {
+    outline: none;
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,0.08);
+}
+
+/* BUTTONS */
+
+.primary-btn,
+.secondary-btn,
+.danger-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 18px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.primary-btn {
+    background: #2563eb;
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #1d4ed8;
+}
+
+.secondary-btn {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.secondary-btn:hover {
+    background: #e5e7eb;
+}
+
+.danger-btn {
+    background: #ef4444;
+    color: white;
+}
+
+.danger-btn:hover {
+    background: #dc2626;
+}
+
+.register-submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.register-status {
+    margin-top: 16px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* MOBILE */
+
+@media (max-width: 950px) {
+
+    .register-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+
+
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login-page {
+    min-height: calc(100vh - 120px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 10px 40px rgba(0,0,0,0.08);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.login-logo {
+    width: 72px;
+    height: 72px;
+
+    margin: auto;
+    margin-bottom: 18px;
+
+    border-radius: 22px;
+
+    background: linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8
+    );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 34px;
+}
+
+.login-header h1 {
+    margin-bottom: 8px;
+    font-size: 34px;
+    color: #111827;
+}
+
+.login-header p {
+    color: #6b7280;
+    font-size: 15px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.login-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-field label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.login-field input {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #d1d5db;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.login-field input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,0.08);
+}
+
+.login-btn {
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 15px;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.login-btn:hover {
+    background: #1d4ed8;
+}

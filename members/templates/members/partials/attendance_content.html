@@ -1,0 +1,256 @@
+{% load custom_tags %}
+
+<div class="attendance-page">
+
+    <!-- HEADER -->
+    <div class="attendance-header">
+
+        <!-- LEFT -->
+        <div>
+
+            <h1 class="attendance-title">
+                ✅ Attendance
+            </h1>
+
+            <p class="attendance-subtitle">
+                {{ today }}
+            </p>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="attendance-summary-grid">
+
+            <!-- MARKED -->
+            <div class="attendance-summary-card success">
+
+                <div class="attendance-summary-number"
+                     id="marked-count">
+
+                    {{ marked_count }}
+
+                </div>
+
+                <div class="attendance-summary-label">
+
+                    Marked
+
+                </div>
+
+            </div>
+
+            <!-- UNMARKED -->
+            <div class="attendance-summary-card warning">
+
+                <div class="attendance-summary-number">
+
+                    {{ unmarked_count }}
+
+                </div>
+
+                <div class="attendance-summary-label">
+
+                    Remaining
+
+                </div>
+
+            </div>
+
+            <!-- TOTAL -->
+            <div class="attendance-summary-card">
+
+                <div class="attendance-summary-number">
+
+                    {{ total }}
+
+                </div>
+
+                <div class="attendance-summary-label">
+
+                    Total Members
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TOOLBAR -->
+    <div class="attendance-toolbar">
+
+        <!-- SEARCH -->
+        <div class="attendance-search-wrapper">
+
+            <span class="attendance-search-icon">
+                🔍
+            </span>
+
+            <input type="text"
+                   id="search"
+                   class="attendance-search-input js-search-input"
+                   placeholder="Search by name or phone number...">
+
+        </div>
+
+        <!-- TOGGLE -->
+        <div class="attendance-toggle">
+
+            <button type="button"
+                    id="btn-unmarked"
+                    class="attendance-toggle-btn active"
+                    onclick="showSection('unmarked')">
+
+                <span>
+                    Unmarked
+                </span>
+
+                <span class="attendance-badge"
+                      id="unmarked-total">
+
+                    {{ unmarked_count }}
+
+                </span>
+
+            </button>
+
+            <button type="button"
+                    id="btn-marked"
+                    class="attendance-toggle-btn"
+                    onclick="showSection('marked')">
+
+                <span>
+                    Marked
+                </span>
+
+                <span class="attendance-badge success"
+                      id="marked-total">
+
+                    {{ marked_count }}
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- UNMARKED -->
+    <section id="unmarked-section"
+             class="attendance-section">
+
+        <!-- SECTION HEADER -->
+        <div class="attendance-section-header">
+
+            <div>
+
+                <h2 class="attendance-section-title">
+                    🔴 Unmarked Members
+                </h2>
+
+                <p class="attendance-section-subtitle">
+                    Members not yet marked present today
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- LIST -->
+        <div class="attendance-members-grid">
+
+            {% for member in members %}
+
+                {% if not attendance_records|get_item:member.id %}
+
+                <div class="attendance-member-card js-member-card"
+
+                     data-name="{{ member.first_name }} {{ member.last_name }}"
+                     data-phone="{{ member.primary_phone }} {{ member.secondary_phone }}"
+                     data-id="{{ member.id }}"
+
+                     onclick="markPresent(this)">
+
+                    {% include 'members/partials/member_card_inner.html' %}
+
+                </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- MARKED -->
+    <section id="marked-section"
+             class="attendance-section"
+             style="display:none;">
+
+        <!-- SECTION HEADER -->
+        <div class="attendance-section-header">
+
+            <div>
+
+                <h2 class="attendance-section-title">
+                    🟢 Marked Present
+                </h2>
+
+                <p class="attendance-section-subtitle">
+                    Members already marked present
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- LIST -->
+        <div class="attendance-members-grid">
+
+            {% for member in members %}
+
+                {% if attendance_records|get_item:member.id %}
+
+                <div class="attendance-member-card active js-member-card"
+
+                     data-name="{{ member.first_name }} {{ member.last_name }}"
+                     data-phone="{{ member.primary_phone }} {{ member.secondary_phone }}"
+                     data-id="{{ member.id }}"
+
+                     onclick="markAbsent(this)">
+
+                    {% include 'members/partials/member_card_inner.html' %}
+
+                </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+    <!-- FLOATING ACTION -->
+    <div class="attendance-floating-actions">
+
+        <button type="button"
+                onclick="saveAttendance()"
+                class="floating-save-btn">
+
+            💾 Save Attendance
+
+        </button>
+
+    </div>
+
+    <!-- STATUS -->
+    <div id="status"
+         class="attendance-save-status">
+
+    </div>
+
+</div>

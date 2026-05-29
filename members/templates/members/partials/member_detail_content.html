@@ -1,0 +1,350 @@
+{% load custom_tags %}
+
+<div class="member-detail-page">
+
+    <!-- HERO -->
+    <div class="member-hero-card">
+
+        <!-- LEFT -->
+        <div class="member-hero-main">
+
+            <!-- AVATAR -->
+            <div class="member-hero-avatar-wrapper">
+
+                {% if member.image %}
+
+                    <img src="{{ member.image.url }}"
+                         class="member-hero-avatar"
+                         alt="{{ member.first_name }}">
+
+                {% else %}
+
+                    <div class="member-hero-avatar member-hero-avatar-placeholder">
+
+                        {{ member.first_name|first }}{{ member.last_name|first }}
+
+                    </div>
+
+                {% endif %}
+
+            </div>
+
+            <!-- INFO -->
+            <div class="member-hero-info">
+
+                <div class="member-hero-top">
+
+                    <h1 class="member-hero-name">
+
+                        {{ member.first_name }} {{ member.last_name }}
+
+                    </h1>
+
+                    <span class="member-active-badge">
+
+                        Active Member
+
+                    </span>
+
+                </div>
+
+                <!-- META -->
+                <div class="member-hero-meta-grid">
+
+                    {% if member.primary_phone %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Primary Phone
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            📞 {{ member.primary_phone }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.secondary_phone %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Secondary Phone
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            ☎️ {{ member.secondary_phone }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.email %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Email Address
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            ✉️ {{ member.email }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.date_of_birth %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Date of Birth
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            🎂 {{ member.date_of_birth }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.session %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Church Session
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            ⛪ {{ member.session.name | capfirst  }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.shepherd_group %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Shepherd Group
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            👨‍👩‍👧 {{ member.shepherd_group.name }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                    {% if member.registered_by %}
+
+                    <div class="member-hero-meta-card">
+
+                        <div class="member-hero-meta-label">
+                            Registered By
+                        </div>
+
+                        <div class="member-hero-meta-value">
+                            👤 {{ member.registered_by.username }}
+                        </div>
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+    <div class="member-stats-grid">
+
+        <!-- PRESENT -->
+        <div class="member-stat-card">
+
+            <div class="member-stat-icon">
+                ✅
+            </div>
+
+            <div class="member-stat-content">
+
+                <div class="member-stat-number">
+                    {{ total_present }}
+                </div>
+
+                <div class="member-stat-label">
+                    Times Present
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RECORDS -->
+        <div class="member-stat-card">
+
+            <div class="member-stat-icon">
+                📅
+            </div>
+
+            <div class="member-stat-content">
+
+                <div class="member-stat-number">
+                    {{ total_records }}
+                </div>
+
+                <div class="member-stat-label">
+                    Total Attendance Records
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- RATIO -->
+        <div class="member-stat-card">
+
+            <div class="member-stat-icon">
+                📊
+            </div>
+
+            <div class="member-stat-content">
+
+                <div class="member-stat-number">
+
+                    {% if total_records > 0 %}
+
+                        {{ total_present|floatformat:0 }}/{{ total_records }}
+
+                    {% else %}
+
+                        0
+
+                    {% endif %}
+
+                </div>
+
+                <div class="member-stat-label">
+                    Attendance Ratio
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- HISTORY -->
+    <div class="member-history-section">
+
+        <!-- HEADER -->
+        <div class="section-header">
+
+            <div>
+
+                <h2 class="section-title">
+                    📅 Attendance History
+                </h2>
+
+                <p class="section-subtitle">
+                    Recent attendance records for this member
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- LIST -->
+        <div class="attendance-history-list">
+
+            {% for record in attendance %}
+
+            <div class="attendance-history-card">
+
+                <!-- LEFT -->
+                <div class="attendance-history-main">
+
+                    <div class="attendance-history-date">
+
+                        {{ record.date }}
+
+                    </div>
+
+                    {% if record.marked_by %}
+
+                    <div class="attendance-history-meta">
+
+                        Marked by:
+                        {{ record.marked_by.username }}
+
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- RIGHT -->
+                <div class="attendance-history-status">
+
+                    {% if record.present %}
+
+                        <span class="attendance-status success">
+
+                            ✅ Present
+
+                        </span>
+
+                    {% else %}
+
+                        <span class="attendance-status danger">
+
+                            ❌ Absent
+
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% empty %}
+
+            <div class="empty-state">
+
+                <div class="empty-state-icon">
+                    📅
+                </div>
+
+                <h3 class="empty-state-title">
+                    No Attendance Records
+                </h3>
+
+                <p class="empty-state-text">
+                    Attendance history will appear here once records are created.
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>

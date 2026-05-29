@@ -1,0 +1,396 @@
+/* ========================================
+   MEMBERS PAGE
+======================================== */
+
+.members-page {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.members-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+.members-title {
+    font-size: 32px;
+    font-weight: 800;
+
+    color: #111827;
+
+    margin-bottom: 6px;
+}
+
+.members-subtitle {
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+/* ========================================
+   SUMMARY
+======================================== */
+
+.members-summary-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    padding: 16px 18px;
+
+    min-width: 120px;
+
+    text-align: center;
+}
+
+.members-summary-number {
+    font-size: 28px;
+    font-weight: 800;
+
+    color: #111827;
+}
+
+.members-summary-label {
+    margin-top: 4px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    color: #6b7280;
+}
+
+/* ========================================
+   TOOLBAR
+======================================== */
+
+.members-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ========================================
+   SEARCH
+======================================== */
+
+.members-search-wrapper {
+    width: 100%;
+
+    position: relative;
+}
+
+.members-search-icon {
+    position: absolute;
+
+    left: 16px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    opacity: 0.6;
+
+    font-size: 14px;
+}
+
+.members-search-input {
+    width: 100%;
+
+    height: 54px;
+
+    border-radius: 16px;
+
+    border: 1px solid #d1d5db;
+
+    background: white;
+
+    padding: 0 18px 0 44px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.members-search-input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37,99,235,0.08);
+}
+
+/* ========================================
+   MEMBERS GRID
+======================================== */
+
+.members-grid {
+    display: grid;
+
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+/* ========================================
+   MEMBER CARD
+======================================== */
+
+.member-card {
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 22px;
+
+    padding: 18px;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    transition: 0.2s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-2px);
+
+    border-color: #dbeafe;
+
+    box-shadow:
+        0 12px 28px rgba(0,0,0,0.05);
+}
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.member-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.member-main-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+/* ========================================
+   AVATAR
+======================================== */
+
+.member-avatar-wrapper {
+    flex-shrink: 0;
+}
+
+.member-avatar {
+    width: 64px;
+    height: 64px;
+
+    border-radius: 18px;
+
+    object-fit: cover;
+}
+
+.member-avatar-placeholder {
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+    font-weight: 800;
+}
+
+/* ========================================
+   STATUS
+======================================== */
+
+.member-status-indicator {
+    background: #dcfce7;
+
+    color: #166534;
+
+    border-radius: 999px;
+
+    padding: 6px 12px;
+
+    font-size: 11px;
+    font-weight: 700;
+}
+
+/* ========================================
+   BODY
+======================================== */
+
+.member-card-body {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.member-name {
+    font-size: 20px;
+    font-weight: 800;
+
+    color: #111827;
+
+    line-height: 1.2;
+}
+
+/* ========================================
+   META LIST
+======================================== */
+
+.member-meta-list {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.member-meta-item {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    color: #4b5563;
+
+    font-size: 14px;
+}
+
+.member-meta-icon {
+    flex-shrink: 0;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.member-card-footer {
+    margin-top: auto;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #f3f4f6;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 12px;
+}
+
+.member-last-seen {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+.member-card-arrow {
+    font-size: 18px;
+    font-weight: 700;
+
+    color: #9ca3af;
+}
+
+/* ========================================
+   EMPTY STATE
+======================================== */
+
+.empty-state {
+    grid-column: 1 / -1;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 24px;
+
+    padding: 60px 24px;
+
+    text-align: center;
+}
+
+.empty-state-icon {
+    font-size: 48px;
+
+    margin-bottom: 14px;
+}
+
+.empty-state-title {
+    font-size: 24px;
+    font-weight: 800;
+
+    color: #111827;
+}
+
+.empty-state-text {
+    margin-top: 8px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .members-header {
+        flex-direction: column;
+
+        gap: 16px;
+    }
+
+    .members-summary-card {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 14px 16px;
+    }
+
+    .members-summary-number {
+        font-size: 22px;
+    }
+
+    .members-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-name {
+        font-size: 18px;
+    }
+
+}

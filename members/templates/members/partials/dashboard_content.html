@@ -1,0 +1,333 @@
+<div class="dashboard-page">
+
+    <!-- HERO -->
+    <section class="dashboard-hero">
+
+        <div class="dashboard-hero-content">
+
+            <div class="dashboard-hero-text">
+
+                <span class="dashboard-welcome-badge">
+
+                    Church Management System
+
+                </span>
+
+                <h1 class="dashboard-hero-title">
+
+                    Welcome back,
+                    {{ request.user.username }}
+
+                </h1>
+
+                <p class="dashboard-hero-description">
+
+                    Manage church members, attendance,
+                    shepherd groups, and reports from one place.
+
+                </p>
+
+            </div>
+
+            <!-- QUICK OVERVIEW -->
+            <div class="dashboard-hero-summary">
+
+                <div class="dashboard-summary-item">
+
+                    <div class="dashboard-summary-icon">
+                        👥
+                    </div>
+
+                    <div>
+
+                        <div class="dashboard-summary-number">
+                            {{ total_members }}
+                        </div>
+
+                        <div class="dashboard-summary-label">
+                            Members
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="dashboard-summary-item">
+
+                    <div class="dashboard-summary-icon">
+                        ✅
+                    </div>
+
+                    <div>
+
+                        <div class="dashboard-summary-number">
+                            {{ total_present_today }}
+                        </div>
+
+                        <div class="dashboard-summary-label">
+                            Present Today
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- STATS -->
+    <section class="dashboard-stats-section">
+
+        <div class="dashboard-section-header">
+
+            <div>
+
+                <h2 class="dashboard-section-title">
+                    Overview
+                </h2>
+
+                <p class="dashboard-section-subtitle">
+                    Church statistics and attendance insights
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-stats-grid">
+
+            <!-- TOTAL MEMBERS -->
+            <div class="dashboard-stat-card">
+
+                <div class="dashboard-stat-top">
+
+                    <div class="dashboard-stat-icon members">
+                        👥
+                    </div>
+
+                </div>
+
+                <div class="dashboard-stat-body">
+
+                    <div class="dashboard-stat-number">
+                        {{ total_members }}
+                    </div>
+
+                    <div class="dashboard-stat-label">
+                        Total Members
+                    </div>
+
+                    <p class="dashboard-stat-description">
+
+                        Registered church members
+                        across all groups and sessions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- PRESENT TODAY -->
+            <div class="dashboard-stat-card">
+
+                <div class="dashboard-stat-top">
+
+                    <div class="dashboard-stat-icon attendance">
+                        ✅
+                    </div>
+
+                </div>
+
+                <div class="dashboard-stat-body">
+
+                    <div class="dashboard-stat-number">
+                        {{ total_present_today }}
+                    </div>
+
+                    <div class="dashboard-stat-label">
+                        Present Today
+                    </div>
+
+                    <p class="dashboard-stat-description">
+
+                        Members marked present
+                        for today's service attendance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- QUICK ACTIONS -->
+    <section class="dashboard-actions-section">
+
+        <div class="dashboard-section-header">
+
+            <div>
+
+                <h2 class="dashboard-section-title">
+                    Quick Actions
+                </h2>
+
+                <p class="dashboard-section-subtitle">
+                    Frequently used management actions
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="dashboard-actions-grid">
+
+            <!-- REPORTS -->
+            <a href="/reports/"
+            class="dashboard-action-card">
+
+                <div class="dashboard-action-icon reports">
+
+                    📊
+
+                </div>
+
+                <div class="dashboard-action-content">
+
+                    <h3 class="dashboard-action-title">
+                        Reports
+                    </h3>
+
+                    <p class="dashboard-action-description">
+
+                        View attendance reports by
+                        month, year, session, or group.
+
+                    </p>
+
+                </div>
+
+                <div class="dashboard-action-arrow">
+
+                    →
+
+                </div>
+
+            </a>
+            
+            <!-- MEMBERS -->
+            <a href="/members/"
+               class="dashboard-action-card">
+
+                <div class="dashboard-action-icon members">
+
+                    👥
+
+                </div>
+
+                <div class="dashboard-action-content">
+
+                    <h3 class="dashboard-action-title">
+
+                        Members
+
+                    </h3>
+
+                    <p class="dashboard-action-description">
+
+                        Browse, search, and manage
+                        all church members.
+
+                    </p>
+
+                </div>
+
+                <div class="dashboard-action-arrow">
+
+                    →
+
+                </div>
+
+            </a>
+
+            <!-- REGISTER -->
+            <a href="/register/"
+               class="dashboard-action-card">
+
+                <div class="dashboard-action-icon register">
+
+                    ➕
+
+                </div>
+
+                <div class="dashboard-action-content">
+
+                    <h3 class="dashboard-action-title">
+
+                        Register Member
+
+                    </h3>
+
+                    <p class="dashboard-action-description">
+
+                        Add a new church member
+                        into the system.
+
+                    </p>
+
+                </div>
+
+                <div class="dashboard-action-arrow">
+
+                    →
+
+                </div>
+
+            </a>
+
+            <!-- ATTENDANCE -->
+            <a href="/attendance/"
+               class="dashboard-action-card">
+
+                <div class="dashboard-action-icon attendance">
+
+                    📅
+
+                </div>
+
+                <div class="dashboard-action-content">
+
+                    <h3 class="dashboard-action-title">
+
+                        Attendance
+
+                    </h3>
+
+                    <p class="dashboard-action-description">
+
+                        Mark and manage today's
+                        attendance records.
+
+                    </p>
+
+                </div>
+
+                <div class="dashboard-action-arrow">
+
+                    →
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </section>
+
+</div>

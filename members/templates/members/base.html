@@ -1,0 +1,284 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        COP-AYD Church Shepherd Portal
+    </title>
+
+    <link rel="stylesheet"
+        href="{% static 'members/css/base.css' %}">
+
+    <link rel="stylesheet"
+        href="{% static 'members/css/layout.css' %}">
+
+    <link rel="stylesheet"
+        href="{% static 'members/css/components.css' %}">
+
+    <link rel="stylesheet"
+        href="{% static 'members/css/mobile.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/dashboard.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/attendance.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/member_list.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/member_inner.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/member_detail.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/register.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/report.css' %}">
+    
+    <link rel="stylesheet"
+        href="{% static 'members/css/login.css' %}">
+
+</head>
+
+<body>
+
+{% if request.user.is_authenticated %}
+
+<header class="app-header">
+
+    <div class="app-header-inner">
+
+        <!-- LEFT -->
+        <div class="app-header-left">
+
+            <!-- MOBILE MENU -->
+            <button type="button"
+                    class="mobile-menu-btn"
+                    onclick="toggleMobileMenu()">
+
+                ☰
+
+            </button>
+
+            <!-- BRAND -->
+            <a href="/"
+               class="app-brand">
+
+                <div class="app-brand-icon">
+                    <img src="{% static 'members/imgs/church-logo.jpg' %}" alt="Logo">
+                </div>
+
+                <div class="app-brand-content">
+
+                    <span class="app-brand-title">
+                        COP-AYD
+                    </span>
+
+                    <span class="app-brand-subtitle">
+                        Church Shepherd Portal
+                    </span>
+
+                </div>
+
+            </a>
+
+        </div>
+
+        <!-- DESKTOP NAV -->
+        <nav class="app-nav">
+
+            <a href="/"
+            class="app-nav-link">
+                Dashboard
+            </a>
+
+            <a href="/members/"
+            class="app-nav-link">
+                Members
+            </a>
+
+            <a href="/register/"
+            class="app-nav-link">
+                Register
+            </a>
+
+            <a href="/attendance/"
+            class="app-nav-link">
+                Attendance
+            </a>
+
+            <a href="/reports/"
+            class="app-nav-link">
+                Reports
+            </a>
+
+        </nav>
+
+        <!-- USER -->
+        <div class="app-user-dropdown">
+
+            <button type="button"
+                    class="app-user-trigger"
+                    onclick="toggleUserMenu()">
+
+                <div class="app-user-avatar">
+
+                    {{ request.user.username|first|upper }}
+
+                </div>
+
+                <div class="app-user-meta">
+
+                    <span class="app-user-name">
+
+                        {{ request.user.username }}
+
+                    </span>
+
+                    <span class="app-user-role">
+
+                        {% if request.user.is_superuser %}
+                            Administrator
+                        {% elif request.user.is_staff %}
+                            Staff
+                        {% else %}
+                            User
+                        {% endif %}
+
+                    </span>
+
+                </div>
+
+                <span class="app-user-chevron">
+
+                    ▼
+
+                </span>
+
+            </button>
+
+            <!-- DROPDOWN -->
+            <div class="app-user-menu"
+                 id="userDropdown">
+
+                <div class="app-user-menu-header">
+
+                    <div class="app-user-avatar large">
+
+                        {{ request.user.username|first|upper }}
+
+                    </div>
+
+                    <div>
+
+                        <div class="dropdown-user-name">
+
+                            {{ request.user.username }}
+
+                        </div>
+
+                        <div class="dropdown-user-role">
+
+                            {% if request.user.is_superuser %}
+                                Administrator
+                            {% elif request.user.is_staff %}
+                                Staff Member
+                            {% else %}
+                                User
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="app-user-menu-divider"></div>
+               
+                <form method="POST"
+                      action="/logout/"
+                      class="logout-form">
+
+                    {% csrf_token %}
+
+                    <button type="submit"
+                            class="app-user-menu-logout">
+
+                        🚪 Logout
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav"
+         id="mobileNav">
+
+        <a href="/"
+        class="app-nav-link">
+            Dashboard
+        </a>
+
+        <a href="/members/"
+        class="app-nav-link">
+            Members
+        </a>
+
+        <a href="/register/"
+        class="app-nav-link">
+            Register
+        </a>
+
+        <a href="/attendance/"
+        class="app-nav-link">
+            Attendance
+        </a>
+
+        <a href="/reports/"
+        class="app-nav-link">
+            Reports
+        </a>
+
+    </div>
+
+</header>
+
+{% endif %}
+
+<!-- MAIN -->
+<main class="app-main">
+
+    <div class="app-container"
+         id="content">
+
+        {% block content %}
+        {% endblock %}
+
+    </div>
+
+</main>
+
+<script src="{% static 'members/index.js' %}"></script>
+
+
+</body>
+
+</html>

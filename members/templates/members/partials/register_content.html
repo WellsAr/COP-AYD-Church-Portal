@@ -1,0 +1,249 @@
+<div class="register-page">
+
+    <!-- HEADER -->
+    <div class="register-header">
+
+        <div>
+            <h1 class="register-title">
+                ➕ Register Member
+            </h1>
+
+            <p class="register-subtitle">
+                Add a new church member to the system
+            </p>
+        </div>
+
+    </div>
+
+    <!-- MAIN GRID -->
+    <div class="register-grid">
+
+        <!-- LEFT PANEL -->
+        <div class="register-photo-panel">
+
+            <div class="panel-header">
+                <h3>📸 Profile Photo</h3>
+
+                <p>
+                    Capture a clear member image
+                </p>
+            </div>
+
+            <!-- CAMERA AREA -->
+            <div class="camera-box">
+
+                <!-- VIDEO -->
+                <video id="camera"
+                       autoplay
+                       playsinline
+                       class="camera-video">
+                </video>
+
+                <!-- IMAGE -->
+                <img id="preview"
+                     class="camera-preview">
+
+                <!-- PLACEHOLDER -->
+                <div id="cameraPlaceholder"
+                     class="camera-placeholder">
+
+                    <div class="camera-placeholder-icon">
+                        👤
+                    </div>
+
+                    <h4>No Photo Selected</h4>
+
+                    <p>
+                        Start camera or upload an image
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- CONTROLS -->
+            <div class="camera-controls">
+
+                <button type="button"
+                        id="startBtn"
+                        class="secondary-btn"
+                        onclick="startCamera()">
+
+                    📷 Start Camera
+
+                </button>
+
+                <button type="button"
+                        id="captureBtn"
+                        class="primary-btn"
+                        style="display:none;"
+                        onclick="capture()">
+
+                    ✅ Capture
+
+                </button>
+
+                <button type="button"
+                        id="stopBtn"
+                        class="danger-btn"
+                        style="display:none;"
+                        onclick="stopCamera()">
+
+                    ⛔ Stop
+
+                </button>
+
+                <button type="button"
+                        id="retakeBtn"
+                        class="secondary-btn"
+                        style="display:none;"
+                        onclick="retake()">
+
+                    🔄 Retake
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT PANEL -->
+        <div class="register-form-panel">
+
+            <div class="panel-header">
+                <h3>📝 Member Information</h3>
+
+                <p>
+                    Fill in all required member details
+                </p>
+            </div>
+
+            <form id="registerForm"
+                  class="register-form">
+
+                {% csrf_token %}
+
+                <!-- HIDDEN CAMERA IMAGE -->
+                <input type="hidden"
+                       name="captured_image"
+                       id="captured_image">
+
+                <!-- FORM GRID -->
+                <div class="register-fields">
+
+                    <!-- FIRST NAME -->
+                    <div class="form-group">
+                        <label>
+                            First Name
+                        </label>
+
+                        {{ form.first_name }}
+                    </div>
+
+                    <!-- LAST NAME -->
+                    <div class="form-group">
+                        <label>
+                            Last Name
+                        </label>
+
+                        {{ form.last_name }}
+                    </div>
+
+                    <!-- DATE OF BIRTH -->
+                    <div class="form-group">
+                        <label>
+                            Date of Birth
+                        </label>
+
+                        {{ form.date_of_birth }}
+                    </div>
+
+                    <!-- PRIMARY PHONE -->
+                    <div class="form-group">
+                        <label>
+                            Primary Phone
+                        </label>
+
+                        {{ form.primary_phone }}
+                    </div>
+
+                    <!-- SECONDARY PHONE -->
+                    <div class="form-group">
+                        <label>
+                            Secondary Phone
+                        </label>
+
+                        {{ form.secondary_phone }}
+                    </div>
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+                        <label>
+                            Email Address
+                        </label>
+
+                        {{ form.email }}
+                    </div>
+
+                    <!-- SESSION -->
+                    <div class="form-group">
+                        <label>
+                            Church Session
+                        </label>
+
+                        {{ form.session }}
+                    </div>
+
+                    <!-- SUPERUSER ONLY -->
+                    {% if request.user.is_superuser %}
+
+                    <div class="form-group form-group-full">
+                        <label>
+                            Upload Image
+                        </label>
+
+                        {{ form.image }}
+
+                        <small class="form-helper">
+                            Admin upload access only
+                        </small>
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+                <!-- AUTO GROUP INFO -->
+                <div class="register-note">
+
+                    <strong>
+                        ℹ️ Shepherd Group Assignment
+                    </strong>
+
+                    <p>
+                        Members are automatically assigned to a shepherd group
+                        based on birth month and church session.
+                    </p>
+
+                </div>
+
+                <!-- SUBMIT -->
+                <button type="submit"
+                        class="primary-btn register-submit-btn">
+
+                    ➕ Register Member
+
+                </button>
+
+            </form>
+
+            <!-- STATUS -->
+            <div id="status"
+                 class="register-status">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

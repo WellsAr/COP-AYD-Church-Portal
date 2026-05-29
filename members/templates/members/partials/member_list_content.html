@@ -1,0 +1,170 @@
+{% load custom_tags %}
+
+<div class="members-page">
+
+    <!-- HEADER -->
+    <div class="members-header">
+
+        <div>
+
+            <h1 class="members-title">
+                👥 Members
+            </h1>
+
+            <p class="members-subtitle">
+                Browse, search and manage church members
+            </p>
+
+        </div>
+
+        <div class="members-summary-card">
+
+            <div class="members-summary-number">
+                {{ members|length }}
+            </div>
+
+            <div class="members-summary-label">
+                Total Members
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SEARCH -->
+    <div class="members-toolbar">
+
+        <div class="members-search-wrapper">
+
+            <span class="members-search-icon">
+                🔍
+            </span>
+
+            <input type="text"
+                   id="search"
+                   class="members-search-input js-search-input"
+                   placeholder="Search by name or phone number...">
+
+        </div>
+
+    </div>
+
+    <!-- MEMBERS GRID -->
+    <div id="members-container"
+         class="members-grid">
+
+        {% for member in members %}
+
+        <a href="/member/{{ member.id }}/"
+           class="member-card js-member-card"
+
+           data-name="{{ member.first_name }} {{ member.last_name }}"
+           data-phone="{{ member.primary_phone }} {{ member.secondary_phone }}">
+
+            <!-- TOP -->
+            <div class="member-card-top">
+
+                <div class="member-main-row">
+
+                    <!-- AVATAR -->
+                    <div class="member-avatar-wrapper">
+
+                        {% if member.image %}
+                            <img src="{{ member.image.url }}"
+                                class="member-avatar"
+                                alt="{{ member.first_name }}">
+                        {% else %}
+                            <div class="member-avatar member-avatar-placeholder">
+                                {{ member.first_name|first }}{{ member.last_name|first }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                    <!-- BODY -->
+                    <div class="member-card-body">
+
+                        <h3 class="member-name">
+                            {{ member.first_name }} {{ member.last_name }}
+                        </h3>
+
+                        <div class="member-meta-list">
+
+                            {% if member.session %}
+                            <div class="member-meta-item">
+                                <span class="member-meta-icon">⛪</span>
+                                <span>{{ member.session.name | capfirst }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if member.shepherd_group %}
+                            <div class="member-meta-item">
+                                <span class="member-meta-icon">👨‍👩‍👧</span>
+                                <span>{{ member.shepherd_group.name }}</span>
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- STATUS -->
+                <div class="member-status-indicator">
+                    Active
+                </div>
+
+            </div>
+
+            <!-- FOOTER -->
+            <div class="member-card-footer">
+
+                <div class="member-last-seen">
+
+                    <span class="member-meta-icon">
+                        🟢
+                    </span>
+
+                    <span>
+
+                        Last Seen:
+                        {{ member.last_seen|default:"No attendance yet" }}
+
+                    </span>
+
+                </div>
+
+                <div class="member-card-arrow">
+
+                    →
+
+                </div>
+
+            </div>
+
+        </a>
+
+        {% empty %}
+
+        <div class="empty-state">
+
+            <div class="empty-state-icon">
+                👥
+            </div>
+
+            <h3 class="empty-state-title">
+                No Members Found
+            </h3>
+
+            <p class="empty-state-text">
+                No members match your current search.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>

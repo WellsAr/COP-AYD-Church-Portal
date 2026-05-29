@@ -1,0 +1,84 @@
+{% load custom_tags %}
+
+<div class="attendance-member-card-inner">
+
+    <!-- LEFT -->
+    <div class="attendance-member-main">
+
+        <!-- AVATAR -->
+        <div class="attendance-member-avatar-wrapper">
+
+            {% if member.image %}
+
+                <img src="{{ member.image.url }}"
+                     class="attendance-member-avatar"
+                     alt="{{ member.first_name }}">
+
+            {% else %}
+
+                <div class="attendance-member-avatar attendance-member-avatar-placeholder">
+
+                    {{ member.first_name|first }}{{ member.last_name|first }}
+
+                </div>
+
+            {% endif %}
+
+        </div>
+
+        <!-- INFO -->
+        <div class="attendance-member-info">
+
+            <!-- TOP -->
+            <div class="attendance-member-top-row">
+
+                <h3 class="attendance-member-name">
+
+                    {{ member.first_name }} {{ member.last_name }}
+
+                </h3>
+
+                <span class="attendance-member-status-badge attendance-status
+                    {% if not attendance_records|get_item:member.id %}hidden{% endif %}">
+                    Present
+                </span>
+
+            </div>
+
+            <!-- META -->
+            <div class="attendance-member-meta-list">
+
+                {% if member.session %}
+
+                <div class="attendance-member-meta-item">
+
+                    <span class="attendance-member-meta-icon">
+                        ⛪
+                    </span>
+
+                    <span>
+                        {{ member.session.name | capfirst }}
+                    </span>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="attendance-member-action">
+
+        <div class="attendance-check-circle">
+
+            ✓
+
+        </div>
+
+    </div>
+
+</div>
